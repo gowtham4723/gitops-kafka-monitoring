@@ -1,0 +1,23 @@
+apiVersion: v1
+kind: Endpoints
+metadata:
+  name: kafka-jmx
+  namespace: monitoring
+  labels:
+    app: kafka-jmx
+
+subsets:
+  - addresses:
+      - ip: <KAFKA_BROKER_1_IP>
+        hostname: lnx-crp-shdsvc-bkr-dev-usea-001
+
+      - ip: <KAFKA_BROKER_2_IP>
+        hostname: lnx-crp-shdsvc-bkr-dev-usea-002
+
+      - ip: <KAFKA_BROKER_3_IP>
+        hostname: lnx-crp-shdsvc-bkr-dev-usea-003
+
+    ports:
+      - name: metrics
+        port: 7071
+        protocol: TCP
