@@ -2,13 +2,12 @@ apiVersion: v1
 kind: Service
 metadata:
   name: kafka-jmx
-  namespace: monitoring
+  namespace: kafka-monitoring
   labels:
     app: kafka-jmx
 spec:
   ports:
-    - name: metrics
+    - name: jmx-metrics
       port: 7071
       targetPort: 7071
       protocol: TCP
-      
